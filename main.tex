@@ -614,6 +614,37 @@ What were the treatments ?
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mechanisms and policy relevance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label=main-wb]{Do health projects work less well today?}
+  \begin{center}
+    \small
+    Examining World Bank funded projects between 1995 and 2014 (AidData) rated on a six-point scale ranging from highly unsatisfactory to highly satisfactory
+  \end{center}
+  \vspace{0.5em}
+  \centering
+  \small
+  \begin{tabular}{lccc}
+    \toprule
+    World Bank project rating  & (1) & (2) & (3) \\
+    \midrule
+    Health project $\times$ share of years visited & \key{-2.090} & \key{-2.100} & \key{-1.979} \\
+                                                   & (0.662) & (0.668) & (0.640) \\
+    \midrule
+    Controls & Geography & All & All + Lasso \\
+    \bottomrule
+  \end{tabular}\\[0.2em]
+  \src{OLS estimation on Health project × share of years visited with country and country-by-health-project
+fixed effects.}
+
+  \vspace{0.5em}
+  \raggedright
+  \begin{itemize}
+    \item At mean exposure: a health project falls from \emph{moderately satisfactory} to
+      \emph{moderately unsatisfactory}
+    \item \textbf{No} negative effect on non-health projects
+    \item Campaigns do not predict where projects go or which ones are rated (no selection bias)
+      \backupbutton{bk-wb}{Selection checks}
+  \end{itemize}
+\end{frame}
 
 \begin{frame}{Is the mistrust specific to medicine?}
   \begin{itemize}
@@ -638,71 +669,37 @@ What were the treatments ?
 
   \vspace{0.6em}
   \raggedright
-  $\Rightarrow$ Small and insignificant: the mistrust is \highlight{specific to the medical domain},
-  not a general erosion of trust as after the slave trade \refs{nunn_wantchekon_2011}
+  $\Rightarrow$ Coefficients are small and insignificant: the mistrust is \highlight{specific to the medical domain}
 \end{frame}
 
 \begin{frame}[label=main-transmission]{How is mistrust transmitted?}
   \begin{itemize}
-    \item \textbf{Vertical} (parents $\to$ children) vs.\ \textbf{horizontal} (peers)
-      \citep[in the spirit of][]{nunn_wantchekon_2011}
-    \item Cameroon DHS 2004: own ethnic group's exposure vs.\ average exposure of
-      \emph{other} ethnic groups living in the same cluster
+    \item Data from Cameroon DHS 2004
+    \item \textbf{Vertical} (parents $\to$ children) : exposure of the individual's own ethnic group vs.\ \textbf{Horizontal} (peers) : exposure of the \emph{other} ethnic groups present in the same DHS cluster
   \end{itemize}
+
+  \vspace{0.3em}
   \centering
-  \small
-  \begin{tabular}{lcc}
+  \footnotesize
+  \setlength{\tabcolsep}{4pt}
+  \begin{tabular}{lccc}
     \toprule
-    Blood test refused & (1) & (2) \\
+    Blood test refused & (1) & (2) & (3) \\
     \midrule
-    Own ethnic group's exposure          & $0.088$ & $0.074$ \\
-                                         & (0.035) & (0.032) \\
-    Other ethnic groups in same location & --      & $0.033$ \\
-                                         &         & (0.041) \\
+    Own ethnic group's exposure          & $0.088$ & $0.074$ & $0.096$ \\
+                                         & (0.035) & (0.032) & (0.034) \\
+    Other ethnic groups in same location & --      & $0.033$ & $0.064$ \\
+                                         &         & (0.041) & (0.034) \\
     \midrule
-    All controls & No & Yes \\
+    Controls & Geography & All & All + Lasso \\
     \bottomrule
   \end{tabular}
 
   \vspace{0.4em}
   \raggedright
   \begin{itemize}
-    \item Own-group effect about \textbf{twice as large} $\Rightarrow$ consistent with vertical transmission
-    \item Suggestive only: 25 ethnic groups, wild-bootstrap $p \approx 0.12$ to $0.13$, and the two
-      coefficients are not statistically different \backupbutton{bk-transmission}{Full table}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[label=main-wb]{Do health projects work less well today?}
-  % \begingroup (not braces): a brace group right after \begin{frame}{title} would be read as a subtitle
-  \begingroup\small
-  \[
-    y_{prc} = \gamma\, \text{Health}_{p} \times \text{ShareYearsVisited}_r + \chi\, \text{ShareYearsVisited}_r
-      + \text{controls} + \delta_c + \alpha_c \times \text{Health}_p + \varepsilon_{prc}
-  \]
-  \endgroup
-  \centering
-  \small
-  \begin{tabular}{lccc}
-    \toprule
-    World Bank project rating (1 to 5) & (1) & (2) & (3) \\
-    \midrule
-    Health project $\times$ share of years visited & \key{-2.090} & \key{-2.100} & \key{-1.979} \\
-                                                   & (0.662) & (0.668) & (0.640) \\
-    \midrule
-    Controls & Geography & All & Lasso \\
-    \bottomrule
-  \end{tabular}\\[0.2em]
-  \src{215 rated projects (AidData, 1995--2014), 72 clusters, mean rating 3.66. Country and country $\times$ health fixed effects.}
-
-  \vspace{0.5em}
-  \raggedright
-  \begin{itemize}
-    \item At mean exposure: a health project falls from \emph{moderately satisfactory} to
-      \emph{moderately unsatisfactory}
-    \item \textbf{No} negative effect on non-health projects
-    \item Campaigns do not predict where projects go or which ones are rated
-      \backupbutton{bk-wb}{Selection checks}
+    \item Effect of exposure to colonial medical campaigns is driven by the exposure of an individual's \textbf{own ethnic group} (effect is \textbf{twice as large}) $\Rightarrow$ consistent with vertical transmission
+    \item {Suggestive only: the two coefficients are not statistically different} \backupbutton{bk-transmission}{Full table}
   \end{itemize}
 \end{frame}
 
@@ -710,152 +707,58 @@ What were the treatments ?
 \section{Discussion and conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Strengths of the paper}
-  \begin{itemize}
-    \item \textbf{New data:} 30 years of archives digitized for 5 countries, at a fine geographic level
+\begin{frame}{Strengths and Limitations}
+  \begin{columns}[T] 
+    \begin{column}{0.48\textwidth}
+      \textbf{\large Strengths}
+      \vspace{0.2cm}
       \begin{itemize}
-        \item A public good for economists, historians and epidemiologists
+        \item \textbf{Robust results:} OLS with rich controls and lasso, IV, within-country falsification test
+        \item \textbf{Historical perspective:} across generations transmission
+        \item \textbf{Showing the mechanism:} explaining correlation between colonial exposure and present-day medical mistrust
       \end{itemize}
-    \item \textbf{Behaviour, not opinions:} consent to a real blood test and actual vaccinations
-    \item \textbf{Triangulation of identification:} OLS with rich controls and lasso, IV,
-      within-country falsification test, placebo crops, placebo outcomes (other forms of trust)
-    \item \textbf{Three independent data sources} point the same way:
-      DHS, Afrobarometer, World Bank ratings
-    \item \textbf{From history to policy:} we go beyond persistence and show consequences for
-      today's health projects
-    \item \textbf{A mechanism, not only a correlation:} medicine-specific mistrust, with equal access to care
-  \end{itemize}
+    \end{column}
+    
+    \begin{column}{0.48\textwidth}
+      \textbf{\large Limitations}
+      \vspace{0.2cm}
+      \begin{itemize}
+        \item \textbf{Archives written by the coloniser:} military reports
+        \item \textbf{Coarse exposure measure:} share of years visited
+        \item \textbf{Trust is proxied:} no survey question on trust in medicine
+        \item \textbf{Migration:} exposure is assigned by place of residence today
+        \item \textbf{Heterogeneous surveys}
+      \end{itemize}
+    \end{column}
+    
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Limitations (1): identification}
-  \begin{itemize}
-    \item \textbf{Exclusion restriction} cannot be tested directly
-      \begin{itemize}
-        \item Cassava could matter through diet, population density, labour or state formation
-        \item The border test is local (50 km, one country); for refusals the British--French
-          difference is only significant at 10\% ($p = 0.06$)
-      \end{itemize}
-    \item \textbf{Instrument strength and sensitivity:} $F \approx 11$ for vaccinations
-      \begin{itemize}
-        \item Vaccination IV: $-0.08$ without education and wealth controls, $-0.25$ with them, never
-          significant at 5\%; these controls may themselves be outcomes of the campaigns (``bad controls'')
-        \item Conventional IV inference is too optimistic for such $F$ \refs{lee_etal_2022}
-          $\Rightarrow$ the causal claim rests mostly on refusals
-      \end{itemize}
-    \item \textbf{IV is about 1.5 to 2 times OLS:} avoidance of resistant areas, but also measurement error,
-      or a local effect for cassava-suitable regions
-    \item \textbf{Spatial correlation:} persistence regressions can produce spurious significance
-      when outcomes and history are spatially clustered \refs{kelly_2019}
-    \item \textbf{Migration:} exposure is assigned by place of residence today
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Limitations (2): measurement and data quality}
-  \begin{itemize}
-    \item \textbf{Archives written by the coloniser:} military reports with their own reporting
-      incentives; different units across colonies (ethnicity-district vs.\ subdistrict)
-    \item \textbf{Coarse exposure measure:} share of years visited
-      \begin{itemize}
-        \item Not the number of injections, the drug used, or the degree of coercion and harm
-      \end{itemize}
-    \item \textbf{Trust is proxied:} no survey question on trust in medicine
-      \begin{itemize}
-        \item Only 4.8\% refuse; refusal may also reflect fear of results, stigma or the survey team
-      \end{itemize}
-    \item \textbf{Vaccination:} supply is not observed in the DHS; evidence of equal access comes from
-      two countries only
-    \item \textbf{Heterogeneous surveys:} from 1994 to 2014; district-level matching for Congo and part of
-      Chad; no biomarkers in CAR
-    \item \textbf{Small samples for secondary results:} 215 projects in 72 clusters; 25 ethnic groups
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Replicability, ethics and external validity}
-  \textbf{Replicability}
-  \begin{itemize}
-    \item Data and code are public (AEA repository, openICPSR project 120570); DHS (on registration),
-      Afrobarometer and AidData are freely accessible
-    \item Researcher choices remain (crop pair, bandwidth, exposure measure): we report placebo crops
-      and alternative bandwidths
-  \end{itemize}
-  \textbf{Ethical considerations}
-  \begin{itemize}
-    \item We rely on the colonisers' own records: African voices appear only indirectly
-    \item Mistrust is a \emph{reasonable response} to past abuse, not a cultural deficiency:
-      results should not be used to blame or stigmatise communities
-    \item Refusing the DHS test is itself an exercise of informed consent, which the campaigns denied
-  \end{itemize}
-  \textbf{External validity}
-  \begin{itemize}
-    \item Five countries under the French military model; Belgian colonies followed it, British ones did not
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Beyond the paper: related evidence and open questions}
+\begin{frame}{Beyond the papers}
   \small
-  \begin{columns}[T]
-    \begin{column}{0.49\textwidth}
       \textbf{The same pattern elsewhere}
       \begin{itemize}
         \item \textbf{US:} Tuskegee disclosure reduced Black men's use of health care
           \refs{alsan_wanamaker_2018}
-        \item \textbf{Pakistan:} after the CIA's fake vaccination campaign, immunisation fell by 23--39\%
-          in districts with high Islamist support \refs{martinez_bravo_stegmann_2022}
-        \item \textbf{Nigeria:} after the Pfizer trial scandal, Muslim mothers vaccinated less
-          \refs{archibong_annan_2021}
-        \item \textbf{Africa-wide:} mistrust and the slave trade predict lower vaccination
-          \refs{stoop_etal_2021,athias_macina_2022}
+        \item \textbf{Pakistan:} the search for Osama bin Laden decreased vaccination rates in Pakistan \refs{martinez_bravo_stegmann_2022}
       \end{itemize}
-    \end{column}
-    \begin{column}{0.49\textwidth}
-      \textbf{What we would do next}
-      \begin{itemize}
-        \item Spatial-noise placebos and Conley standard errors \refs{kelly_2019}
-        \item Weak-IV-robust intervals; bounds allowing a small direct effect of the instrument
-          \refs{conley_etal_2012}
-        \item Open the black box between 1956 and today \refs{austin_2008}:
-          what did post-colonial health systems do?
-        \item Use injections and drug type in the archives: does \emph{harm} or \emph{coercion} drive mistrust?
-        \item Can trust be rebuilt? Concordant doctors, community monitoring
-          \refs{alsan_garrick_graziani_2019,christensen_etal_2021}
-      \end{itemize}
-    \end{column}
-  \end{columns}
+
 \end{frame}
 
 \begin{frame}{Conclusion}
   \begin{enumerate}
-    \item We built a new dataset from 30 years of colonial archives on the sleeping sickness campaigns
-    \item Greater exposure $\Rightarrow$ \textbf{fewer child vaccinations} and \textbf{more refusals}
+    \item Greater exposure to colonial campaigns $\Rightarrow$ \textbf{fewer vaccinations} and \textbf{more refusals}
       of free blood tests today
-    \item The effect is \textbf{specific to medicine}, transmitted within communities, and it weakens
+    \item The effect is \textbf{specific to medicine}, transmitted within and between ethnic groups, and it weakens
       present-day \textbf{health policy}
   \end{enumerate}
   \vspace{0.6em}
   \begin{block}{Take-aways for policy}
     \begin{itemize}
+      \item History matters for the design of development interventions, as coercive health campaigns have long-term effects that can persist across generetions
       \item Building demand for health care may first require \highlight{rebuilding trust in medicine}
-      \item History matters for the design of development interventions: same project, different
-        places, different results
-      \item Coercive public health campaigns can carry hidden costs that last for generations
     \end{itemize}
   \end{block}
-\end{frame}
-
-\begin{frame}[plain,noframenumbering]
-  \centering
-  \vfill
-  {\Huge\color{smileblue} Thank you!}\\[1.6em]
-  \begin{minipage}{0.78\textwidth}
-    \begin{block}{Questions we would like to discuss with you}
-      \begin{enumerate}
-        \item Can trust in medicine be rebuilt, and by whom: the state, NGOs, local health workers?
-        \item Is this mistrust a bias to correct or a rational response to history?
-        \item Would you expect the same legacy in former Belgian colonies, which copied the French model?
-      \end{enumerate}
-    \end{block}
-  \end{minipage}
-  \vfill
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
