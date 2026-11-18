@@ -3,10 +3,6 @@
 %% Seminar presentation (45 min) -- we present the paper as its authors
 %% Template: SMILE beamer (Nasy) -- see smile_styles.tex
 %%
-%% Compile on Overleaf with pdfLaTeX (default). Bibliography: natbib + BibTeX.
-%% Version without animations (for printing / sharing): add "handout" to
-%% the class options below:  \documentclass[aspectratio=1610,handout]{beamer}
-%%
 %% Timing plan (30 numbered slides, target 43 min + 2 min buffer):
 %%   1 Introduction                    slides  1-5    7 min
 %%   2 Historical background           slides  6-9    5 min
@@ -16,7 +12,7 @@
 %%   6 Mechanisms and policy relevance slides 22-24   4.5 min
 %%   7 Discussion and conclusion       slides 25-30   8 min
 %%
-%% Suggested split between speakers:
+%% Split between speakers :
 %%   Speaker 1 : sections 1-2                         (~12 min)
 %%   Speaker 2 : sections 3-4 + results up to robustness, slides 10-20 (~16.5 min)
 %%   Speaker 3 : slide 21 to the end                  (~14.5 min)
@@ -95,6 +91,17 @@
 
 \begin{frame}{A puzzle: low demand for effective health care}
   \begin{itemize}
+    \item Sub-Saharan Africa carries a disproportionate share of the global disease burden
+      \begin{itemize}
+        \item 90\% of malaria deaths, 70\% shareo of people living with HIV in the world, highest under-5 mortality
+      \end{itemize}
+    \item Yet demand for cheap, effective preventive care remains \highlight{puzzlingly low}
+      \refs{dupas_2011,banerjee_etal_2010,dupas_miguel_2017}
+      \begin{itemize}
+        \item An estimated 20 million children are not vaccinated \refs{who_2019};
+          in the region we study it is often below herd-immunity thresholds
+      \end{itemize}
+    \item Usual explanations: liquidity constraints, present bias, access costs, information
     \item \textbf{A missing piece? Mistrust of medicine}
       \begin{itemize}
         \item Ebola (West Africa 2014, DR Congo 2018--19): distrust of health workers hampered containment
@@ -137,9 +144,9 @@
       \begin{itemize}
         \item \textbf{Vaccinations} fall by 11\% to 24\% of the mean (depending on OLS vs IV methods)
         \item \textbf{Refusals} of a free blood test more than double
-        \item \textbf{Health-seeking:} less contact with the health system, despite \emph{equal access}
-        \item \textbf{Mechanism:} mistrust is \emph{specific to medicine} and passed on mostly within ethnic groups
-        \item \textbf{Policy:} World Bank \emph{health} projects rated about one notch lower;
+        \item \textbf{Health-seeking:} less contact with the health system,  \highlight{despite equal access}
+        \item \textbf{Mechanism:} mistrust is \highlight{specific to medicine} and passed on mostly within ethnic groups
+        \item \textbf{Policy:} World Bank health projects rated about one notch lower;
           no effect on other sectors
       \end{itemize}
 \end{frame}
@@ -178,10 +185,10 @@
     \textbf{Literature} & \textbf{What was missing} & \textbf{What we add} \\
     \midrule
     Colonial legacies &
-      The colonial \emph{medical campaigns} had never been studied quantitatively &
+      The colonial medical campaigns had never been studied quantitatively &
       A new archival dataset: First quantitative evidence on the sleeping sickness campaigns \\
     Demand for health &
-      The \emph{origin} of mistrust is left unexplained &
+      The origin of mistrust is left unexplained &
       Mistrust rooted in history as a demand-side constraint \\
     Trust and health &
       Long term dynamics, study of historical roots of trust outside the US &
@@ -207,7 +214,7 @@
         \item Lethal parasitic disease (\emph{trypanosomiasis}) transmitted by the \textbf{tsetse fly}
         \item Large epidemics in the early 20th century
         \item Motives for intervention: humanitarian, but also \textbf{labour supply} and scientific prestige
-        \item French approach: treat the \emph{individual}\\
+        \item French approach: treat the \highlight{individual}\\
           (British: control the environment)
           \refs{headrick_d_2014}
       \end{itemize}
@@ -260,7 +267,7 @@ What were the treatments ?
     \begin{column}{0.48\textwidth}
       \textbf{Atoxyl} (arsenic-based)
       \begin{itemize}
-        \item Therapeutic dose close to lethal dose
+        \item \highlight{Therapeutic dose close to lethal dose}
         \item Blindness in up to \highlight{20\%} of patients
         \item Could speed death in stage 2
         \item Used by the French until the 1930s, a decade after other colonisers stopped:
@@ -270,9 +277,9 @@ What were the treatments ?
     \begin{column}{0.48\textwidth}
       \textbf{Lomidine} (pentamidine)
       \begin{itemize}
-        \item Mass \emph{preventive} injections for entire villages, every 6 months
+        \item Mass preventive injections for entire villages, every 6 months
         \item Pain, dizziness, gangrene, deaths
-        \item Considered too dangerous for Europeans
+        \item \highlight{Considered too dangerous for Europeans}
         \item Ultimately \highlight{ineffective} as prevention
       \end{itemize}
     \end{column}
